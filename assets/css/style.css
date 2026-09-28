@@ -419,3 +419,324 @@ a {
   color: #17241f;
   transform: translateY(-4px);
 }
+
+/* =========================================================
+   Correction pass - responsive, navigation and alignment
+   ========================================================= */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
+.navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, .55);
+  padding: .5rem .65rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 .2rem rgba(213, 168, 106, .35);
+}
+
+/* Keep the hamburger clearly visible against the dark navigation bar. */
+.navbar-dark .navbar-toggler-icon,
+.navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-collapse {
+  min-width: 0;
+}
+
+/* Make property-card links line up even when descriptions have different lengths. */
+.property-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.property-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.property-body>a:last-child,
+.property-body .d-flex:last-child a {
+  margin-top: auto;
+}
+
+.principles-image {
+  display: block;
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+
+.contact-submit {
+  width: 100%;
+}
+
+.social-links a,
+.contact-social a {
+  transition: background-color .25s ease, border-color .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;
+}
+
+.social-links a:hover,
+.social-links a:focus-visible,
+.contact-social a:hover,
+.contact-social a:focus-visible {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: #17241f;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .16);
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .navbar .container {
+    max-width: 960px;
+  }
+
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+
+  .nav-link {
+    margin: 0 .2rem;
+    font-size: .92rem;
+  }
+
+  .navbar .btn-gold {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    padding: 1rem 0 .35rem;
+  }
+
+  .navbar-nav {
+    width: 100%;
+  }
+
+  .navbar .nav-link {
+    display: block;
+    padding: .65rem 0;
+  }
+
+  .navbar .nav-link.active::after {
+    bottom: .3rem;
+  }
+
+  .navbar-collapse .btn {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+
+  .page-hero,
+  .hero {
+    overflow: hidden;
+  }
+
+  .hero h1,
+  .page-hero h1 {
+    overflow-wrap: anywhere;
+  }
+
+  .image-feature,
+  .principles-image,
+  .gallery img {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+  }
+
+  .section-title {
+    margin-bottom: 32px;
+  }
+
+  .property-img {
+    height: 260px;
+  }
+
+  .property-body {
+    padding: 1.25rem;
+  }
+
+  .property-body .d-flex.justify-content-between {
+    gap: .75rem;
+    flex-wrap: wrap;
+  }
+
+  .principles-image {
+    height: 360px;
+  }
+
+  .image-feature {
+    height: 360px;
+  }
+
+  .gallery img {
+    height: 280px;
+  }
+
+  .footer .d-flex form,
+  .footer form.d-flex {
+    flex-wrap: wrap;
+  }
+
+  .footer form.d-flex .form-control {
+    width: 100%;
+  }
+
+  .footer form.d-flex .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  .hero-content {
+    padding: 105px 0 55px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.45rem, 12vw, 4rem);
+  }
+
+  .page-hero {
+    padding: 125px 0 65px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .search-card {
+    margin-top: 1.5rem;
+  }
+
+  .search-card .btn {
+    min-height: 48px;
+  }
+
+  .property-img {
+    height: 235px;
+  }
+
+  .image-feature,
+  .principles-image {
+    height: 300px;
+  }
+
+  .gallery img {
+    height: 240px;
+  }
+
+  .footer {
+    padding-top: 55px;
+  }
+}
+
+/* Mobile / tablet navbar fixes */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1030;
+}
+
+.navbar>.container {
+  position: relative;
+}
+
+.navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, .7) !important;
+  border-radius: 0;
+  padding: .45rem .65rem;
+  box-shadow: none !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 2px rgba(213, 168, 106, .45) !important;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 1rem 1rem 1.25rem;
+    background: var(--primary);
+    border-top: 1px solid rgba(255, 255, 255, .12);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, .18);
+    z-index: 1029;
+  }
+
+  .navbar-collapse .navbar-nav {
+    width: 100%;
+  }
+
+  .navbar-collapse .nav-link {
+    padding: .7rem 0;
+  }
+
+  .navbar-collapse .btn {
+    margin-top: .65rem !important;
+  }
+
+  /* Keep the hero/content in place while the mobile menu opens. */
+  .hero,
+  .page-hero {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* Footer: 2 columns per row on tablet, 1 column per row on mobile */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .footer .row>[class*="col-"] {
+    width: 50%;
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .footer .row>[class*="col-"] {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+/* Scroll-to-top hover */
+.back-top {
+  border: 1px solid rgba(255, 255, 255, .35);
+  transition: background-color .25s ease, color .25s ease, transform .25s ease, box-shadow .25s ease;
+  cursor: pointer;
+}
+
+.back-top:hover,
+.back-top:focus-visible {
+  background: var(--primary);
+  color: var(--secondary);
+  border-color: var(--secondary);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .2);
+}
+
+.back-top:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 3px;
+}
