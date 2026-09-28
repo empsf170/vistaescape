@@ -12,7 +12,21 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   const back=document.querySelector(".back-top");
   window.addEventListener("scroll",()=>{if(back)back.style.display=scrollY>450?"grid":"none"});
-  if(back)back.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}));
+  if(back)back.addEventListener("click",e=>{
+    e.preventDefault();
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+
+  // Close the mobile navigation after selecting a page.
+  const navCollapse=document.getElementById("nav");
+  document.querySelectorAll("#nav .nav-link, #nav .btn").forEach(link=>{
+    link.addEventListener("click",()=>{
+      if(navCollapse && window.innerWidth < 992 && navCollapse.classList.contains("show")){
+        const instance=bootstrap.Collapse.getInstance(navCollapse) || new bootstrap.Collapse(navCollapse,{toggle:false});
+        instance.hide();
+      }
+    });
+  });
 
   document.querySelectorAll("form").forEach(form=>{
     form.addEventListener("submit",e=>{
